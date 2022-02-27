@@ -1,0 +1,16 @@
+{
+  "name": "marketplace-ladsdle",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ marketplace-ladsdle",
+    "create-local": "graph create --node http://localhost:8020/ marketplace-ladsdle",
+    "remove-local": "graph remove --node http://localhost:8020/ marketplace-ladsdle",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 marketplace-ladsdle"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.27.0",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
