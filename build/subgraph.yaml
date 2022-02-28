@@ -1,0 +1,37 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MarketPlace
+    network: rinkeby
+    source:
+      address: "0xd76978ba8518D70f73A74e43Ec2e5bb4483DCc7b"
+      abi: MarketPlace
+      startBlock: 10240962
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Cancel
+        - Listed
+        - Offered
+        - Sale
+        - ListingEntity
+        - SaleEntity
+        - HistoryNFt
+        - OfferEntity
+      abis:
+        - name: MarketPlace
+          file: MarketPlace/abis/MarketPlace.json
+      eventHandlers:
+        - event: Cancel(uint256,address)
+          handler: handleCancel
+        - event: Listed(uint256,address,address,uint256,uint256,uint8)
+          handler: handleListed
+        - event: Offered(address,uint256,uint256)
+          handler: handleOffered
+        - event: Sale(uint256,address,address,address,uint256,uint256,uint8)
+          handler: handleSale
+      file: MarketPlace/MarketPlace.wasm

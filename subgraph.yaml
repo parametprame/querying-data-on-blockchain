@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0xd76978ba8518D70f73A74e43Ec2e5bb4483DCc7b"
       abi: MarketPlace
+      startBlock: 10240962	
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -17,6 +18,10 @@ dataSources:
         - Listed
         - Offered
         - Sale
+        - ListingEntity
+        - SaleEntity
+        - HistoryNFt
+        - OfferEntity
       abis:
         - name: MarketPlace
           file: ./abis/MarketPlace.json
